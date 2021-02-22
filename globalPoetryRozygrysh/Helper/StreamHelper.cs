@@ -6,11 +6,12 @@ namespace globalPoetryRozygrysh.Helper
     {
         public static void CopyStream(Stream input, Stream output)
         {
-            byte[] buffer = new byte[8 * 1024];
-            int len;
-            while ((len = input.Read(buffer, 0, buffer.Length)) > 0)
+            byte[] buffer = new byte[8192];
+
+            int bytesRead;
+            while ((bytesRead = input.Read(buffer, 0, buffer.Length)) > 0)
             {
-                output.Write(buffer, 0, len);
+                output.Write(buffer, 0, bytesRead);
             }
         }
     }

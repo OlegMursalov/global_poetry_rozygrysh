@@ -29,8 +29,17 @@ namespace globalPoetryRozygrysh.Controllers
             Document document = new Document();
             PdfWriter.GetInstance(document, workStream).CloseStream = false;
 
-            BaseFont bf = BaseFont.CreateFont(@"\Content\font\ARIALUNI.TTF", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-            Font f = new Font(bf, 30, Font.NORMAL);
+            var title = "globalPoetryRozygrysh.Content.font.ARIALUNI.TTF";
+            using (var s = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(title))
+            {
+                using (Stream output = System.IO.File.Create("ARIALUNI.TTF"))
+                {
+                    StreamHelper.CopyStream(s, output);
+                }
+            }
+
+            BaseFont bf = BaseFont.CreateFont("ARIALUNI.TTF", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            Font f = new Font(bf, 12, Font.NORMAL);
 
             document.Open();
 
