@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace globalPoetryRozygrysh.Helper
 {
@@ -7,7 +8,7 @@ namespace globalPoetryRozygrysh.Helper
         public static string Generate(string vk_id)
         {
             var sb = new StringBuilder();
-            foreach (var i in vk_id)
+            foreach (var i in Reverse(vk_id))
             {
                 sb.Append((int)i);
             }
@@ -17,6 +18,13 @@ namespace globalPoetryRozygrysh.Helper
         public static bool Check(string vk_id, string token)
         {
             return Generate(vk_id) == token;
+        }
+
+        private static string Reverse(string s)
+        {
+            char[] charArray = s.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
     }
 }
