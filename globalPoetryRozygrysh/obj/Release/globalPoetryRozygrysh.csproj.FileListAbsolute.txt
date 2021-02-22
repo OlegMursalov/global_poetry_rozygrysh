@@ -104,3 +104,4 @@ C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\R
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Release\globalPoetryRozygrysh.csproj.CopyComplete
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Release\globalPoetryRozygrysh.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Release\globalPoetryRozygrysh.pdb
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Release\globalPoetryRozygrysh.csprojAssemblyReference.cache

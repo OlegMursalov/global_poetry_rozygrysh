@@ -1,5 +1,9 @@
 ﻿using globalPoetryRozygrysh.Helper;
 using globalPoetryRozygrysh.Repositories.MySql;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
+using System.IO;
 using System.Web.Mvc;
 
 namespace globalPoetryRozygrysh.Controllers
@@ -11,6 +15,25 @@ namespace globalPoetryRozygrysh.Controllers
         public PoetryController()
         {
             _textMySqlRepository = new TextMySqlRepository();
+        }
+
+        [HttpPost]
+        public FileStreamResult GetPdf()
+        {
+            MemoryStream workStream = new MemoryStream();
+            Document document = new Document();
+            PdfWriter.GetInstance(document, workStream).CloseStream = false;
+
+            document.Open();
+            document.Add(new Paragraph(DateTime.Now.ToString()));
+            document.Add(new Paragraph("GLOBAL POETRY РОЗЫГРЫШ, ТЕКСТЫ.."));
+            document.Close();
+
+            byte[] byteInfo = workStream.ToArray();
+            workStream.Write(byteInfo, 0, byteInfo.Length);
+            workStream.Position = 0;
+
+            return new FileStreamResult(workStream, "application/pdf");
         }
 
         [HttpGet]

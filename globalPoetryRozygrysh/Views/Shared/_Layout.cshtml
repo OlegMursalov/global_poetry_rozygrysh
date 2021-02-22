@@ -9,14 +9,20 @@
     <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css">
     <link rel="stylesheet" href="~/Content/Site.css">
 </head>
-<body style="background: url(/Content/images/tekstura_fon_tekst_simvoly_50473_1920x1080.jpg)">
+<body style="background: url(/Content/images/tekstura_fon_tekst_simvoly_50473_1920x1080.jpg); position: relative;">
     <div class="container body-content">
+        <div style="top: 20px; opacity: 0.7; position: absolute; right: 0; background: black; border-radius: 15px; border: solid 2px cyan; padding: 10px;">
+            <p style="color: #337ab7;">Все тексты доступны всем</p>
+            <p style="color: #337ab7;">Тексты выгружаются одним файлом</p>
+            <p style="color: #337ab7;">Формат файла: PDF</p>
+            <button onclick="window.gpr.load_pdf();" type="button" style="border: solid 2px cyan; font-size: 1em;" id="button" class="btn btn-primary btn-lg btn-block login-button">Выгрузить тексты</button>
+        </div>
         @RenderBody()
         <footer>
             <div class="row">
                 <div class="cols-md-12" style="text-align: center; position: relative;">
                     <img src="~/Content/images/alik.jpg" style="width: 90%;" />
-                    <div style="top: 20px; position: absolute; right: 0; background: black; border-radius: 15px; border: solid 2px cyan; padding: 10px;">
+                    <div style="top: 20px; opacity: 0.7; position: absolute; right: 0; background: black; border-radius: 15px; border: solid 2px cyan; padding: 10px;">
                         <ul style="list-style: cambodian; color: cyan; text-align: left; margin: 0; padding-left: 20px">
                             <li><a href="https://vk.com/id417550403">Богдан Лагодыч (битмейкер)</a></li>
                             <li><a href="https://vk.com/molodoy_danilka">Данниисимо Серван-То-Лиморье (битмейкер)</a></li>
@@ -31,5 +37,25 @@
     </div>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        window.gpr = {
+            load_pdf: function () {
+                debugger;
+                var req = new XMLHttpRequest();
+                req.open("POST", "/Poetry/GetPdf", true);
+                req.responseType = "blob";
+                req.onload = function (event) {
+                    debugger;
+                    var blob = req.response;
+                    console.log(blob.size);
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = "Dossier_" + new Date() + ".pdf";
+                    link.click();
+                };
+                req.send();
+            }
+        };
+    </script>
 </body>
 </html>
