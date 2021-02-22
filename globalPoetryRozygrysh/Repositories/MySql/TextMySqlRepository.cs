@@ -1,17 +1,14 @@
 ﻿using globalPoetryRozygrysh.Models;
 using MySql.Data.MySqlClient;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Web;
 
 namespace globalPoetryRozygrysh.Repositories.MySql
 {
     public class TextMySqlRepository : BaseMySqlRepository
     {
-        public IEnumerable<LyricsDto> Get(string vk_id, out string errMessage)
+        public List<LyricsDto> Get(string vk_id, out string errMessage)
         {
             errMessage = null;
             var list = new List<LyricsDto>();
@@ -36,7 +33,7 @@ namespace globalPoetryRozygrysh.Repositories.MySql
                                 {
                                     id = !reader.IsDBNull(0) ? reader.GetInt32(0) : 0,
                                     vk_id = !reader.IsDBNull(1) ? reader.GetString(1) : null,
-                                    value = !reader.IsDBNull(2) ? reader.GetString(2) : null
+                                    value = GetUTF8String(!reader.IsDBNull(2) ? reader.GetString(2) : null)
                                 });
                             }
                         }

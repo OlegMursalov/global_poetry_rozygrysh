@@ -11,10 +11,12 @@ namespace globalPoetryRozygrysh.Controllers
     public class PoetryController : Controller
     {
         private TextMySqlRepository _textMySqlRepository;
+        private PersonMySqlRepository _personMySqlRepository;
 
         public PoetryController()
         {
             _textMySqlRepository = new TextMySqlRepository();
+            _personMySqlRepository = new PersonMySqlRepository();
         }
 
         [HttpPost]
@@ -25,8 +27,30 @@ namespace globalPoetryRozygrysh.Controllers
             PdfWriter.GetInstance(document, workStream).CloseStream = false;
 
             document.Open();
-            document.Add(new Paragraph(DateTime.Now.ToString()));
-            document.Add(new Paragraph("GLOBAL POETRY РОЗЫГРЫШ, ТЕКСТЫ.."));
+            string ARIALUNI_TFF = Path.Combine(@"C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\Content\font\", "ARIALUNI.TTF");
+            BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            Font f = new Font(bf, 12, Font.NORMAL);
+            document.Add(new Paragraph(DateTime.Now.ToString(), f));
+            document.Add(new Paragraph("GLOBAL POETRY РОЗЫГРЫШ, ТЕКСТЫ..", f));
+
+            string errMessage = null;
+            foreach (var vk_id in _personMySqlRepository.GetAllVkIds(out errMessage))
+            {
+                document.Add(new Paragraph($"----- https://vk.com/{vk_id}", f));
+                var texts = _textMySqlRepository.Get(vk_id, out errMessage);
+                for (int i = 0; i < texts.Count; i++)
+                {
+                    if (!string.IsNullOrEmpty(texts[i].value))
+                    {
+                        document.Add(new Paragraph($"{i + 1}: {texts[i].value}", f));
+                    }
+                    else
+                    {
+                        document.Add(new Paragraph($"{i + 1}: <не заполнено>", f));
+                    }
+                }
+            }
+            
             document.Close();
 
             byte[] byteInfo = workStream.ToArray();

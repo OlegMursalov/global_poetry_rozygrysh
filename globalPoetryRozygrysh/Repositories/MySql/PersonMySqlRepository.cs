@@ -1,12 +1,48 @@
 ﻿using globalPoetryRozygrysh.Models;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace globalPoetryRozygrysh.Repositories.MySql
 {
     public class PersonMySqlRepository : BaseMySqlRepository
     {
+        public IEnumerable<string> GetAllVkIds(out string errMessage)
+        {
+            errMessage = null;
+            var list = new List<string>();
+
+            try
+            {
+                using (var myConnection = new MySqlConnection(_connectionString))
+                {
+                    myConnection.Open();
+                    var sb = new StringBuilder();
+                    sb.AppendLine("SELECT `vk_id`");
+                    sb.AppendLine("FROM `poets`");
+                    var myCommand = new MySqlCommand(GetUTF8String(sb.ToString()), myConnection);
+                    using (var reader = myCommand.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                list.Add(!reader.IsDBNull(0) ? reader.GetString(0) : null);
+                            }
+                        }
+                    }
+                    myConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                errMessage = GetInfoByException(ex);
+            }
+
+            return list;
+        }
+
         public AuthDto Get(string vk_id, out string errMessage)
         {
             errMessage = null;
