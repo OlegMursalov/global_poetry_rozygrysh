@@ -1,10 +1,18 @@
 ﻿using globalPoetryRozygrysh.Models;
+using globalPoetryRozygrysh.Repositories.MySql;
 using System.Web.Mvc;
 
 namespace globalPoetryRozygrysh.Controllers
 {
     public class AuthController : Controller
     {
+        private PersonMySqlRepository _personMySqlRepository;
+
+        public AuthController()
+        {
+            _personMySqlRepository = new PersonMySqlRepository();
+        }
+
         [HttpGet]
         public ActionResult Index(AuthPerson authPerson = null)
         {
@@ -29,7 +37,12 @@ namespace globalPoetryRozygrysh.Controllers
             }
             else
             {
-                
+                string errMsg;
+                if (!_personMySqlRepository.IsExist(vk_id, pass, out errMsg))
+                {
+                    _personMySqlRepository.Create(vk_id, pass, description, out errMsg);
+                }
+                return Redirect($"/Poetry/Index?vk_id={vk_id}");
             }
         }
     }
