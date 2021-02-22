@@ -1,4 +1,5 @@
-﻿using globalPoetryRozygrysh.Models;
+﻿using globalPoetryRozygrysh.Helper;
+using globalPoetryRozygrysh.Models;
 using globalPoetryRozygrysh.Repositories.MySql;
 using System.Web.Mvc;
 
@@ -43,7 +44,7 @@ namespace globalPoetryRozygrysh.Controllers
                 {
                     if (authDto.pass == pass)
                     {
-                        return Redirect($"/Poetry/Index?vk_id={vk_id}");
+                        return RedirectWithAuthToken(vk_id);
                     }
                     else
                     {
@@ -55,8 +56,14 @@ namespace globalPoetryRozygrysh.Controllers
                 {
                     _personMySqlRepository.Create(vk_id, pass, description, out errMsg);
                 }
-                return Redirect($"/Poetry/Index?vk_id={vk_id}");
+                return RedirectWithAuthToken(vk_id);
             }
+        }
+
+        private ActionResult RedirectWithAuthToken(string vk_id)
+        {
+            var token = AuthTokenHelper.Generate(vk_id);
+            return Redirect($"/Poetry/Index?vk_id={vk_id}&token={token}");
         }
     }
 }

@@ -6,7 +6,7 @@
 
     @if (ViewBag.TooltipText != null)
     {
-        <p style="color: green;">@ViewBag.TooltipText</p>
+        <p style="color: #00ff00; font-weight: 900;">@ViewBag.TooltipText</p>
     }
 
     <form class="" method="post" action="/Poetry/Process">
@@ -25,6 +25,7 @@
                 </div>
             }
             <input type="hidden" name="vk_id" id="vk_id" value="@ViewBag.vk_id" />
+            <input type="hidden" name="token" id="token" value="@ViewBag.token" />
         </div>
         <div class="form-group">
             <button type="submit" style="border: solid 2px cyan; font-size: 1em;" id="button" class="btn btn-primary btn-lg btn-block login-button">Сохранить всё</button>
