@@ -4,7 +4,10 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Web.Mvc;
+using static iTextSharp.text.pdf.BaseFont;
 
 namespace globalPoetryRozygrysh.Controllers
 {
@@ -26,10 +29,11 @@ namespace globalPoetryRozygrysh.Controllers
             Document document = new Document();
             PdfWriter.GetInstance(document, workStream).CloseStream = false;
 
+            BaseFont bf = BaseFont.CreateFont(@"\Content\font\ARIALUNI.TTF", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            Font f = new Font(bf, 30, Font.NORMAL);
+
             document.Open();
-            string ARIALUNI_TFF = Path.Combine(@"C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\Content\font\", "ARIALUNI.TTF");
-            BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-            Font f = new Font(bf, 12, Font.NORMAL);
+
             document.Add(new Paragraph(DateTime.Now.ToString(), f));
             document.Add(new Paragraph("GLOBAL POETRY РОЗЫГРЫШ, ТЕКСТЫ..", f));
 

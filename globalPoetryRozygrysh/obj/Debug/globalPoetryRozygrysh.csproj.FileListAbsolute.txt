@@ -104,6 +104,7 @@ C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\D
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.csproj.CopyComplete
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.pdb
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.csprojAssemblyReference.cache
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\itextsharp.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\itextsharp.xml
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Content\font\ARIALUNI.TTF
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.csprojAssemblyReference.cache

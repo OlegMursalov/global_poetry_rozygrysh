@@ -172,6 +172,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\AuthTokenHelper.cs" />
+    <Compile Include="Helper\StreamHelper.cs" />
     <Compile Include="Models\AuthDto.cs" />
     <Compile Include="Models\AuthPerson.cs" />
     <Compile Include="Models\LyricsDto.cs" />
@@ -191,7 +192,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\font\ARIALUNI.TTF" />
+    <Content Include="Content\font\ARIALUNI.TTF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

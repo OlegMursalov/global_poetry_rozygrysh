@@ -15,7 +15,7 @@
             <p style="color: #337ab7;">Все тексты доступны всем</p>
             <p style="color: #337ab7;">Тексты выгружаются одним файлом</p>
             <p style="color: #337ab7;">Формат файла: PDF</p>
-            <button type="button" style="border: solid 2px cyan; font-size: 1em;" id="button" class="btn btn-primary btn-lg btn-block login-button">Выгрузить тексты</button>
+            <button onclick="window.gpr.load_pdf();" type="button" style="border: solid 2px cyan; font-size: 1em;" id="button" class="btn btn-primary btn-lg btn-block login-button">Выгрузить тексты</button>
         </div>
         @RenderBody()
         <footer>
@@ -37,5 +37,25 @@
     </div>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        window.gpr = {
+            load_pdf: function () {
+                debugger;
+                var req = new XMLHttpRequest();
+                req.open("POST", "/Poetry/GetPdf", true);
+                req.responseType = "blob";
+                req.onload = function (event) {
+                    debugger;
+                    var blob = req.response;
+                    console.log(blob.size);
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = "global_poetry_rozygrish.pdf";
+                    link.click();
+                };
+                req.send();
+            }
+        };
+    </script>
 </body>
 </html>
