@@ -38,7 +38,20 @@ namespace globalPoetryRozygrysh.Controllers
             else
             {
                 string errMsg;
-                if (!_personMySqlRepository.IsExist(vk_id, pass, out errMsg))
+                var authDto = _personMySqlRepository.Get(vk_id, out errMsg);
+                if (authDto != null)
+                {
+                    if (authDto.pass == pass)
+                    {
+                        return Redirect($"/Poetry/Index?vk_id={vk_id}");
+                    }
+                    else
+                    {
+                        ViewBag.TooltipText = "Не верный пароль";
+                        return View("Index", authPerson);
+                    }
+                }
+                else
                 {
                     _personMySqlRepository.Create(vk_id, pass, description, out errMsg);
                 }

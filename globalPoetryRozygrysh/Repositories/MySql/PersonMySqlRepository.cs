@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using globalPoetryRozygrysh.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Text;
 
@@ -6,7 +7,7 @@ namespace globalPoetryRozygrysh.Repositories.MySql
 {
     public class PersonMySqlRepository : BaseMySqlRepository
     {
-        public bool IsExist(string vk_id, string pass, out string errMessage)
+        public AuthDto Get(string vk_id, out string errMessage)
         {
             errMessage = null;
 
@@ -18,7 +19,7 @@ namespace globalPoetryRozygrysh.Repositories.MySql
                     var sb = new StringBuilder();
                     sb.AppendLine("SELECT `vk_id`, `pass`");
                     sb.AppendLine("FROM `poets`");
-                    sb.AppendLine($"WHERE `vk_id` = '{vk_id}' and `pass` = '{pass}'");
+                    sb.AppendLine($"WHERE `vk_id` = '{vk_id}'");
                     var myCommand = new MySqlCommand(GetUTF8String(sb.ToString()), myConnection);
                     using (var reader = myCommand.ExecuteReader())
                     {
@@ -26,7 +27,11 @@ namespace globalPoetryRozygrysh.Repositories.MySql
                         {
                             while (reader.Read())
                             {
-                                return true;
+                                return new AuthDto
+                                {
+                                    vk_id = !reader.IsDBNull(0) ? reader.GetString(0) : null,
+                                    pass = !reader.IsDBNull(1) ? reader.GetString(1) : null
+                                };
                             }
                         }
                     }
@@ -38,7 +43,7 @@ namespace globalPoetryRozygrysh.Repositories.MySql
                 errMessage = GetInfoByException(ex);
             }
 
-            return false;
+            return null;
         }
 
         public void Create(string vk_id, string pass, string description, out string errMessage)
