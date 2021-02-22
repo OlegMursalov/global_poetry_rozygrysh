@@ -13,10 +13,11 @@ namespace globalPoetryRozygrysh.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index(string vk_id)
+        public ActionResult Index(string vk_id, string tooltipText = null)
         {
             ViewBag.vk_id = vk_id;
             string errMessage = null;
+            ViewBag.tooltipText = tooltipText;
             var texts = _textMySqlRepository.Get(vk_id, out errMessage);
             return View(texts);
         }
@@ -26,8 +27,7 @@ namespace globalPoetryRozygrysh.Controllers
         {
             string errMessage = null;
             _textMySqlRepository.SaveAll(vk_id, lyrics, out errMessage);
-            ViewBag.TooltipText = "Тексты успешно сохранены";
-            return Redirect($"/Poetry/Index?vk_id={vk_id}");
+            return Redirect($"/Poetry/Index?vk_id={vk_id}&tooltipText=Тексты успешно сохранены");
         }
     }
 }

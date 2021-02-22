@@ -3,6 +3,12 @@
 <div class="jumbotron" style="background: darkmagenta; border: solid 2px cyan;">
     <h1 style="color: cyan; margin-top: 0px!important;">GLOBAL POETRY РОЗЫГРЫШ</h1>
     <p class="lead" style="color: cyan;">Это твои слова?..</p>
+
+    @if (ViewBag.TooltipText != null)
+    {
+        <p style="color: green;">@ViewBag.TooltipText</p>
+    }
+
     <form class="" method="post" action="/Poetry/Process">
         <div class="row" style="margin-bottom: 25px;">
             @for (int i = 0; i < 5; i++)
@@ -14,7 +20,7 @@
                             var lyricsDto = Model != null ? Model.FirstOrDefault(x => x.id == i) : null;
                             var value = lyricsDto != null ? lyricsDto.value : null;
                         }
-                        <textarea style="height: 350px; resize: none;" id="lyrics[@i]" name="lyrics[@i]" class="form-control" value="@(value)" placeholder="Панчи, рифмы, поэзия, стихи, лирика.."></textarea>
+                        <textarea style="height: 350px; resize: none;" id="lyrics[@i]" name="lyrics[@i]" class="form-control" placeholder="Панчи, рифмы, поэзия, стихи, лирика..">@value</textarea>
                     </div>
                 </div>
             }
@@ -23,10 +29,6 @@
         <div class="form-group">
             <button type="submit" style="border: solid 2px cyan; font-size: 1em;" id="button" class="btn btn-primary btn-lg btn-block login-button">Сохранить всё</button>
         </div>
-        @if (ViewBag.TooltipText != null)
-        {
-            <p style="color: green;">@ViewBag.TooltipText</p>
-        }
     </form>
 </div>
 
