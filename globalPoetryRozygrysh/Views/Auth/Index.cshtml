@@ -4,9 +4,9 @@
     <h1 style="color: cyan; margin-top: 0px!important;">GLOBAL POETRY РОЗЫГРЫШ</h1>
     <p class="lead" style="color: cyan;">Форма регистрации-авторизации</p>
 
-    @if (Model.TooltipText != null)
+    @if (ViewBag.TooltipText != null)
     {
-        <span style="color: red;">@Model.TooltipText</span>
+        <span style="color: red;">@ViewBag.TooltipText</span>
     }
 
     <form class="" method="post" action="Process">

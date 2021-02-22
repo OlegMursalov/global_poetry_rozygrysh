@@ -170,6 +170,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthPerson.cs" />
+    <Compile Include="Models\LyricsDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\MySql\BaseMySqlRepository.cs" />
     <Compile Include="Repositories\MySql\PersonMySqlRepository.cs" />

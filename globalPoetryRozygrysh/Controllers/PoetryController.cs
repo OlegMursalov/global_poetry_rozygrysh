@@ -15,7 +15,16 @@ namespace globalPoetryRozygrysh.Controllers
         [HttpGet]
         public ActionResult Index(string vk_id)
         {
-            return View();
+            ViewBag.vk_id = vk_id;
+            string errMessage = null;
+            var texts = _textMySqlRepository.Get(vk_id, out errMessage);
+            return View(texts);
+        }
+
+        [HttpPost]
+        public ActionResult Process(string vk_id, string[] lyrics)
+        {
+            return null;
         }
     }
 }
