@@ -26,9 +26,8 @@ namespace globalPoetryRozygrysh.Controllers
         {
             string errMessage = null;
             _textMySqlRepository.SaveAll(vk_id, lyrics, out errMessage);
-            ViewBag.vk_id = vk_id;
             ViewBag.TooltipText = "Тексты успешно сохранены";
-            return View(lyrics);
+            return Redirect($"/Poetry/Index?vk_id={vk_id}");
         }
     }
 }
