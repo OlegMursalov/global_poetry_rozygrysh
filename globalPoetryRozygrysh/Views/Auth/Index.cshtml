@@ -1,48 +1,52 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model globalPoetryRozygrysh.Models.AuthPerson
 
-    <div class="jumbotron" style="background: darkmagenta; border: solid 2px cyan;">
-        <h1 style="color: cyan;">GLOBAL POETRY РОЗЫГРЫШ</h1>
-        <p class="lead" style="color: cyan;">Форма регистрации-авторизации</p>
-        <form class="" method="post" action="Process">
+<div class="jumbotron" style="background: darkmagenta; border: solid 2px cyan;">
+    <h1 style="color: cyan; margin-top: 0px!important;">GLOBAL POETRY РОЗЫГРЫШ</h1>
+    <p class="lead" style="color: cyan;">Форма регистрации-авторизации</p>
 
-            <div class="form-group">
-                <label style="color: cyan;" for="vk_id" class="cols-sm-2 control-label">ID VK <span style="color: red;">*</span></label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="vk_id" id="vk_id" placeholder="Чтоб вас найти в ВК" />
-                    </div>
+    @if (Model.TooltipText != null)
+    {
+        <span style="color: red;">@Model.TooltipText</span>
+    }
+
+    <form class="" method="post" action="Process">
+
+        <div class="form-group">
+            <label style="color: cyan;" for="vk_id" class="cols-sm-2 control-label">ID VK <span style="color: red;">*</span></label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" name="vk_id" id="vk_id" value="@(Model != null ? Model.VK_ID : null)" placeholder="Чтоб вас найти в ВК" />
                 </div>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label style="color: cyan;" for="pass" class="cols-sm-2 control-label">Пароль <span style="color: red;">*</span></label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" name="pass" id="pass" placeholder="Пароль" />
-                    </div>
+        <div class="form-group">
+            <label style="color: cyan;" for="pass" class="cols-sm-2 control-label">Пароль <span style="color: red;">*</span></label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="password" class="form-control" name="pass" id="pass" value="@(Model != null ? Model.Pass : null)" placeholder="Пароль" />
                 </div>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label style="color: cyan;" for="description" class="cols-sm-2 control-label">Как вам перевести деньги?</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                        <textarea id="description" name="description" class="form-control" placeholder="Кратко опишите куда и как"></textarea>
-                    </div>
+        <div class="form-group">
+            <label style="color: cyan;" for="description" class="cols-sm-2 control-label">Как вам перевести деньги?</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                    <textarea id="description" name="description" class="form-control" value="@(Model != null ? Model.Description : null)" placeholder="Кратко опишите куда и как"></textarea>
                 </div>
             </div>
+        </div>
 
-            <div class="form-group ">
-                <button type="submit" style="border: solid 2px cyan; font-size: 1em;" id="button" class="btn btn-primary btn-lg btn-block login-button">Зарегистрироваться или войти</button>
-            </div>
+        <div class="form-group ">
+            <button type="submit" style="border: solid 2px cyan; font-size: 1em;" id="button" class="btn btn-primary btn-lg btn-block login-button">Зарегистрироваться или войти</button>
+        </div>
 
-        </form>
-    </div>
+    </form>
+</div>
 
 <div class="row">
 </div>
