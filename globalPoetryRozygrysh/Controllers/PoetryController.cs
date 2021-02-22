@@ -24,7 +24,11 @@ namespace globalPoetryRozygrysh.Controllers
         [HttpPost]
         public ActionResult Process(string vk_id, string[] lyrics)
         {
-            return null;
+            string errMessage = null;
+            _textMySqlRepository.SaveAll(vk_id, lyrics, out errMessage);
+            ViewBag.vk_id = vk_id;
+            ViewBag.TooltipText = "Тексты успешно сохранены";
+            return View(lyrics);
         }
     }
 }

@@ -23,7 +23,10 @@
         <div class="form-group">
             <button type="submit" style="border: solid 2px cyan; font-size: 1em;" id="button" class="btn btn-primary btn-lg btn-block login-button">Сохранить всё</button>
         </div>
-
+        @if (ViewBag.TooltipText != null)
+        {
+            <p style="color: green;">@ViewBag.TooltipText</p>
+        }
     </form>
 </div>
 

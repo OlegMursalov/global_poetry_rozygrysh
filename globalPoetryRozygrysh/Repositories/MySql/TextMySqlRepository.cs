@@ -52,22 +52,109 @@ namespace globalPoetryRozygrysh.Repositories.MySql
             return list;
         }
 
-        public void Save(string vk_id, string lyrics)
+        public void SaveAll(string vk_id, string[] lyrics, out string errMessage)
         {
-            /*using (var myConnection = new MySqlConnection(_connectionString))
+            errMessage = null;
+
+            try
             {
-                myConnection.Open();
-                var sb = new StringBuilder();
-                sb.AppendLine("UPDATE `usbreleportsettings`");
-                var timesJson = JsonConvert.SerializeObject(usbRelePortSettingsDto.Times);
-                var installDate = usbRelePortSettingsDto.InstallDate;
-                var recurrencyDay = usbRelePortSettingsDto.RecurrencyDay;
-                sb.AppendLine($"SET `OpenSecAmount`={usbRelePortSettingsDto.OpenSecAmount},`Times`=`{timesJson}`,`InstallDate`=`{installDate}`,`RecurrencyDay`=`{recurrencyDay}`");
-                sb.AppendLine($"WHERE `Id` = {usbRelePortSettingsDto.Id}");
-                var myCommand = new MySqlCommand(GetUTF8String(sb.ToString()), myConnection);
-                myCommand.ExecuteNonQuery();
-                myConnection.Close();
-            }*/
+                for (int i = 0; i < lyrics.Length; i++)
+                {
+                    if (IsExistText(vk_id, i, out errMessage))
+                    {
+                        Update(vk_id, i, lyrics[i], out errMessage);
+                    }
+                    else
+                    {
+                        Create(vk_id, i, lyrics[i], out errMessage);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errMessage = GetInfoByException(ex);
+            }
+        }
+
+        private void Create(string vk_id, int i, string value, out string errMessage)
+        {
+            errMessage = null;
+
+            try
+            {
+                using (var myConnection = new MySqlConnection(_connectionString))
+                {
+                    myConnection.Open();
+
+                    var sb = new StringBuilder();
+                    sb.AppendLine($"INSERT INTO `lyrics`(`id`, `vk_id`, `value`) VALUES ('{i}','{vk_id}','{value}')");
+                    var myCommand = new MySqlCommand(GetUTF8String(sb.ToString()), myConnection);
+                    var x = myCommand.ExecuteNonQuery();
+
+                    myConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                errMessage = GetInfoByException(ex);
+            }
+        }
+
+        private void Update(string vk_id, int i, string value, out string errMessage)
+        {
+            errMessage = null;
+
+            try
+            {
+                using (var myConnection = new MySqlConnection(_connectionString))
+                {
+                    myConnection.Open();
+
+                    var sb = new StringBuilder();
+                    sb.AppendLine($"UPDATE `lyrics` SET `value`='{value}' WHERE `vk_id`='{vk_id}' and `id`='{i}'");
+                    var myCommand = new MySqlCommand(GetUTF8String(sb.ToString()), myConnection);
+                    var x = myCommand.ExecuteNonQuery();
+
+                    myConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                errMessage = GetInfoByException(ex);
+            }
+        }
+
+        private bool IsExistText(string vk_id, int i, out string errMessage)
+        {
+            bool result = false;
+            errMessage = null;
+
+            try
+            {
+                using (var myConnection = new MySqlConnection(_connectionString))
+                {
+                    myConnection.Open();
+
+                    var sb = new StringBuilder();
+                    sb.AppendLine("SELECT `id`");
+                    sb.AppendLine("FROM `lyrics`");
+                    sb.AppendLine($"WHERE `vk_id` = '{vk_id}' and `id` = '{i}'");
+                    var myCommand = new MySqlCommand(GetUTF8String(sb.ToString()), myConnection);
+
+                    using (var reader = myCommand.ExecuteReader())
+                    {
+                        result = reader.HasRows;
+                    }
+
+                    myConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                errMessage = GetInfoByException(ex);
+            }
+
+            return result;
         }
     }
 }
