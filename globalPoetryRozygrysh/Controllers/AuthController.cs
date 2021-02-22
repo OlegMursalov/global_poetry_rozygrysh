@@ -20,11 +20,17 @@ namespace globalPoetryRozygrysh.Controllers
                 Pass = pass,
                 Description = description
             };
-            if (!authPerson.Validate())
+
+            string tooltipText;
+            if (!authPerson.Validate(out tooltipText))
             {
+                ViewBag.TooltipText = tooltipText;
                 return View("Index", authPerson);
             }
-            else return View();
+            else
+            {
+                
+            }
         }
     }
 }

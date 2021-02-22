@@ -5,23 +5,22 @@
         public string VK_ID { get; set; }
         public string Pass { get; set; }
         public string Description { get; set; }
-        public string TooltipText { get; set; }
 
-        public bool Validate()
+        public bool Validate(out string tooltipText)
         {
             if (string.IsNullOrEmpty(VK_ID))
             {
-                TooltipText = "Заполните, пожалуйста, VK ID";
+                tooltipText = "Заполните, пожалуйста, VK ID";
                 return false;
             }
             else if (string.IsNullOrEmpty(Pass))
             {
-                TooltipText = "Заполните, пожалуйста, пароль";
+                tooltipText = "Заполните, пожалуйста, пароль";
                 return false;
             }
             else
             {
-                TooltipText = null;
+                tooltipText = null;
                 return true;
             }
         }
