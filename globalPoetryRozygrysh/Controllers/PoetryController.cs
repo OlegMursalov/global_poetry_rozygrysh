@@ -1,13 +1,12 @@
 ﻿using globalPoetryRozygrysh.Helper;
 using globalPoetryRozygrysh.Repositories.MySql;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
+using System.Text;
 using System.Web.Mvc;
-using static iTextSharp.text.pdf.BaseFont;
 
 namespace globalPoetryRozygrysh.Controllers
 {
@@ -23,6 +22,37 @@ namespace globalPoetryRozygrysh.Controllers
         }
 
         [HttpPost]
+        public FileStreamResult GetPdf()
+        {
+            string errMessage = null;
+            var list = new List<string>();
+
+            foreach (var vk_id in _personMySqlRepository.GetAllVkIds(out errMessage))
+            {
+                list.Add($"---- https://vk.com/{vk_id}");
+                var texts = _textMySqlRepository.Get(vk_id, out errMessage);
+                for (int i = 0; i < texts.Count; i++)
+                {
+                    if (!string.IsNullOrEmpty(texts[i].value))
+                    {
+                        list.Add($"{i + 1}: --");
+                        foreach (var line in texts[i].value.Split('\n'))
+                        {
+                            list.Add(line.Trim());
+                        }
+                    }
+                    else
+                    {
+                        list.Add($"{i + 1}: --");
+                    }
+                }
+            }
+            
+            var workStream = PdfHelper.SimpleGenerate("GLOBAL POETRY РОЗЫГРЫШ (тексты)", list);
+            return new FileStreamResult(workStream, "application/pdf");
+        }
+
+        /*[HttpPost]
         public FileStreamResult GetPdf()
         {
             MemoryStream workStream = new MemoryStream();
@@ -71,7 +101,7 @@ namespace globalPoetryRozygrysh.Controllers
             workStream.Position = 0;
 
             return new FileStreamResult(workStream, "application/pdf");
-        }
+        }*/
 
         [HttpGet]
         public ActionResult Index(string vk_id, string token, bool? success = null)
