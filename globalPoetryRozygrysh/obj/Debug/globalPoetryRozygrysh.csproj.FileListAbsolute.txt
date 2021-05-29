@@ -111,4 +111,3 @@ C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\D
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.csproj.CopyComplete
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.pdb
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.csprojAssemblyReference.cache
