@@ -35,6 +35,8 @@ textarea {
 label {
     font-weight: 500 !important;
     font-size: 25px;
+    background: radial-gradient(black, transparent);
+    color: yellow;
 }
 
 .form-group {
