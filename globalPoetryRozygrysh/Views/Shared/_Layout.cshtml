@@ -64,6 +64,7 @@
                         $(this).attr('disabled', 'disabled');
                     }
                 });
+                $("html, body").animate({ scrollTop: $(document).height() }, 800);
             } else {
                 $('#xxxxx').attr('disabled', 'disabled');
                 $('#main-form-x').find('input[type="checkbox"]').each(function () {
