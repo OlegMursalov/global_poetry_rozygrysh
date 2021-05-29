@@ -3,9 +3,9 @@ using System.Web.Mvc;
 
 namespace globalPoetryRozygrysh.Controllers
 {
-    public class MainController : Controller
+    public class RzgrController : Controller
     {
-        public MainController()
+        public RzgrController()
         {
         }
 

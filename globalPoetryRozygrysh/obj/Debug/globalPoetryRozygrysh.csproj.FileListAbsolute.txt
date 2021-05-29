@@ -1,3 +1,4 @@
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Content\font\ARIALUNI.TTF
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\globalPoetryRozygrysh.dll.config
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\globalPoetryRozygrysh.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\globalPoetryRozygrysh.pdb
@@ -57,6 +58,8 @@ C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\M
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\MySql.Data.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Newtonsoft.Json.dll
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\PdfSharp.Charting.dll
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\PdfSharp.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Renci.SshNet.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\System.Buffers.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\System.Memory.dll
@@ -78,6 +81,8 @@ C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\K
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\K4os.Compression.LZ4.Streams.xml
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\K4os.Hash.xxHash.xml
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\MySql.Data.xml
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\PdfSharp.xml
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\PdfSharp.Charting.xml
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Renci.SshNet.xml
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\System.Buffers.xml
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\System.Memory.xml
@@ -93,6 +98,8 @@ C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\S
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Newtonsoft.Json.xml
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Antlr3.Runtime.pdb
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\de\PdfSharp.resources.dll
+C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\de\PdfSharp.Charting.resources.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\ru\System.Web.Helpers.resources.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\ru\System.Web.Mvc.resources.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\ru\System.Web.Optimization.resources.dll
@@ -104,11 +111,4 @@ C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\D
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.csproj.CopyComplete
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.pdb
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Content\font\ARIALUNI.TTF
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\obj\Debug\globalPoetryRozygrysh.csprojAssemblyReference.cache
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\PdfSharp.Charting.dll
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\PdfSharp.dll
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\PdfSharp.xml
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\PdfSharp.Charting.xml
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\de\PdfSharp.resources.dll
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\de\PdfSharp.Charting.resources.dll
