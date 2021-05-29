@@ -61,6 +61,7 @@ namespace globalPoetryRozygrysh.Models
             new Varik { Value = "товарищ Троцкий примерил тут угги и сплясал с ледорубом", IsTrue = false },
             new Varik { Value = "мы любим новоприбывших варфейсеров..", IsTrue = true },
             new Varik { Value = "У ВАС ЕСТЬ ШАНС СТАТЬ УСПЕШНЫМИ И ПОДЗАРАБОТАТЬ РУБЛИ", IsTrue = true },
+            new Varik { Value = "топчимся на месте - беговая дорожка", IsTrue = false },
         };
 
         public IEnumerable<Varik> GetAllRapLines()
