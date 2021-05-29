@@ -169,23 +169,15 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\MainController.cs" />
-    <Compile Include="Controllers\PoetryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\AuthTokenHelper.cs" />
     <Compile Include="Helper\PdfHelper.cs" />
     <Compile Include="Helper\StreamHelper.cs" />
-    <Compile Include="Models\AuthDto.cs" />
-    <Compile Include="Models\AuthPerson.cs" />
-    <Compile Include="Models\LyricsDto.cs" />
     <Compile Include="Models\RapLineModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\MySql\BaseMySqlRepository.cs" />
-    <Compile Include="Repositories\MySql\PersonMySqlRepository.cs" />
-    <Compile Include="Repositories\MySql\TextMySqlRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -225,8 +217,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Auth\Index.cshtml" />
-    <Content Include="Views\Poetry\Index.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
