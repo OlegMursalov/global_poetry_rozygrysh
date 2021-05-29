@@ -173,9 +173,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\AuthTokenHelper.cs" />
-    <Compile Include="Helper\PdfHelper.cs" />
-    <Compile Include="Helper\StreamHelper.cs" />
     <Compile Include="Models\RapLineModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
