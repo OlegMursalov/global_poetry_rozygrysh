@@ -1,4 +1,3 @@
-C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\Content\font\ARIALUNI.TTF
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\globalPoetryRozygrysh.dll.config
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\globalPoetryRozygrysh.dll
 C:\Users\Олег\source\repos\globalPoetryRozygrysh\globalPoetryRozygrysh\bin\globalPoetryRozygrysh.pdb
