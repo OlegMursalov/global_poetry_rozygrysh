@@ -22,3 +22,19 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.form-check-label {
+    cursor: pointer!important;
+}
+
+label {
+    font-weight: 500!important;
+}
+
+.form-group {
+    margin-bottom: 0px!important;
+}
+
+a {
+    color: red!important;
+}
