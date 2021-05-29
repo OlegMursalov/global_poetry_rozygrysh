@@ -46,3 +46,11 @@ label {
 a {
     color: red!important;
 }
+
+.form-check-label:hover {
+    background: radial-gradient(#001a00, transparent);
+}
+
+.form-check-label.selected {
+    background: radial-gradient(blue, transparent)!important;
+}

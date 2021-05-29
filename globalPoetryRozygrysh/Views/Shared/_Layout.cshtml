@@ -25,6 +25,7 @@
                             <li><a href="https://vk.com/djdanilaa">DanilaDJ - биты, сведение..</a></li>
                             <li><a href="https://vk.com/andrulikmusic">Андрей Романенко (картинки, биты, сведение)</a></li>
                             <li><a href="https://vk.com/amaz1ng555">Камиль Пивоваров (absolute эпоха)</a></li>
+                            <li><a href="https://vk.com/id516425821">йа..</a></li>
                         </ul>
                     </div>
                 </div>
@@ -34,7 +35,13 @@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
-
+        $('#main-form-x').on("click", ".form-check-input", function (e) {
+            if ($(e.target).prop('checked')) {
+                $(e.target).parent().addClass('selected');
+            } else {
+                $(e.target).parent().removeClass('selected');
+            }
+        });
     </script>
 </body>
 </html>
