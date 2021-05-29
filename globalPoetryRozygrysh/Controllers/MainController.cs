@@ -11,8 +11,7 @@ namespace globalPoetryRozygrysh.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-
-            return View();
+            return View(new RapLineModel());
         }
     }
 }

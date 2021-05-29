@@ -4,12 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOBAL POETRY РОЗЫГРЫШ</title>
+    <title>GUESS RAP-LINE RZGR</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css">
     <link rel="stylesheet" href="~/Content/Site.css">
 </head>
-<body style="background: url(/Content/images/tekstura_fon_tekst_simvoly_50473_1920x1080.jpg); position: relative;">
+<body style="background-color: #4acaea; position: relative;">
     <div class="container body-content">
         @RenderBody()
         <footer>
@@ -32,24 +32,7 @@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
-        window.gpr = {
-            load_pdf: function () {
-                debugger;
-                var req = new XMLHttpRequest();
-                req.open("POST", "/Poetry/GetPdf", true);
-                req.responseType = "blob";
-                req.onload = function (event) {
-                    debugger;
-                    var blob = req.response;
-                    console.log(blob.size);
-                    var link = document.createElement('a');
-                    link.href = window.URL.createObjectURL(blob);
-                    link.download = "global_poetry_rozygrish.pdf";
-                    link.click();
-                };
-                req.send();
-            }
-        };
+
     </script>
 </body>
 </html>
