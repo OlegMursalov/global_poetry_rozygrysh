@@ -36,10 +36,26 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
         $('#main-form-x').on("click", ".form-check-input", function (e) {
+            debugger;
+            
             if ($(e.target).prop('checked')) {
                 $(e.target).parent().addClass('selected');
             } else {
                 $(e.target).parent().removeClass('selected');
+            }
+
+            if ($('#main-form-x').find('input[type="checkbox"]:checked').length == 15) {
+                $('#main-form-x').find('input[type="checkbox"]').each(function () {
+                    $('#xxxxx').removeAttr('disabled');
+                    if (!$(this).prop('checked')) {
+                        $(this).attr('disabled', 'disabled');
+                    }
+                });
+            } else {
+                $('#xxxxx').attr('disabled', 'disabled');
+                $('#main-form-x').find('input[type="checkbox"]').each(function () {
+                    $(this).removeAttr('disabled');
+                });
             }
         });
     </script>
