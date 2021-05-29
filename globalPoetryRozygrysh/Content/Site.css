@@ -27,8 +27,14 @@ textarea {
     cursor: pointer!important;
 }
 
+.form-check-input {
+    width: 20px;
+    height: 20px;
+}
+
 label {
-    font-weight: 500!important;
+    font-weight: 500 !important;
+    font-size: 20px;
 }
 
 .form-group {
