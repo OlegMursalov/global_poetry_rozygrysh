@@ -37,7 +37,7 @@
     <script type="text/javascript">
         $('#main-form-x').on("click", ".form-check-input", function (e) {
             debugger;
-            
+
             if ($(e.target).prop('checked')) {
                 $(e.target).parent().addClass('selected');
             } else {
@@ -57,6 +57,22 @@
                     $(this).removeAttr('disabled');
                 });
             }
+        });
+
+        $('#xxxxx').click(function () {
+            let result = '';
+
+            $('#main-form-x').find('input[type="checkbox"]').each(function () {
+                if ($(this).prop('checked')) {
+                    result += $(this).val() + ';';
+                }
+            });
+
+            let $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(result).select();
+            document.execCommand("copy");
+            $temp.remove();
         });
     </script>
 </body>
